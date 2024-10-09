@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Find A Job - Skills Match</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Job match platform" name="description">
+    <meta content="job search, skills match, employment" name="keywords">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+      
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+          <a href="index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+              <h1 class="m-0 text-secondary">Skills-Match Website</h1>
+          </a>
+          <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav ms-auto p-4 p-lg-0">
+                  <a href="index.html" class="nav-item nav-link active">Home</a>
+                  <a href="about.html" class="nav-item nav-link">About</a>
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
+                      <div class="dropdown-menu rounded-0 m-0">
+                          <a href="job-list.html" class="dropdown-item">Job List</a>
+                           <!--<a href="job-detail.html" class="dropdown-item">Job Detail</a>-->
+                      </div>
+                  </div>
+                  <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                      <div class="dropdown-menu rounded-0 m-0">
+                          <a href="category.html" class="dropdown-item">Job Category</a>
+                          <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                         
+                      </div>
+                  </div>
+                  <a href="contact.html" class="nav-item nav-link">Contact</a>
+              </div>
+              <a href="find-job.html" class="btn btn-secondary rounded-0 py-4 px-lg-5 d-none d-lg-block">Find A Job<i class="fa fa-arrow-right ms-3"></i></a>
+          </div>
+      </nav>
+      <!-- Navbar End -->
+
+        <!-- Header Start -->
+        <div class="container-xxl py-5 bg-dark page-header mb-5">
+            <div class="container my-5 pt-5 pb-4">
+                <h1 class="display-3 text-white mb-3 animated slideInDown">Find A Job</h1>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- Job Search Form Start -->
+        <div class="container my-5">
+            <h2 class="text-center mb-4">Enter Your Skills and Location</h2>
+            <form id="job-search-form">
+                <div class="mb-3">
+                    <label for="skillsInput" class="form-label">Skills (comma separated)</label>
+                    <input type="text" class="form-control" id="skillsInput" placeholder="e.g., JavaScript, Python, Project Management">
+                </div>
+                <div class="mb-3">
+                    <label for="locationInput" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="locationInput" placeholder="e.g., New York, London, Cape Town">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="searchJobs()">Match Jobs</button>
+            </form>
+        </div>
+        <!-- Job Search Form End -->
+
+        <!-- Job Results Section Start -->
+        <div class="container my-5" id="job-results">
+            <h2 class="text-center mb-4">Job Matches</h2>
+            <div id="jobs-container">
+                <!-- Matched jobs will be displayed here -->
+            </div>
+        </div>
+        <!-- Job Results Section End -->
+
+        <!-- Job Application Modal Start -->
+        <div class="modal fade" id="jobApplicationModal" tabindex="-1" aria-labelledby="jobApplicationModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jobApplicationModalLabel">Apply for Job</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="job-application-form">
+                            <div class="mb-3">
+                                <label for="applicantName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="applicantName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantSurname" class="form-label">Surname</label>
+                                <input type="text" class="form-control" id="applicantSurname" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="applicantEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="applicantPhone" required>
+                            </div>
+                            <div class="mb-3">
+                              <label for="applicantDOB" class="form-label">Date of Birth</label>
+                              <input type="date" class="form-control" id="applicantDOB" required>
+                          </div>
+                          
+                            <div class="mb-3">
+                                <label for="applicantGender" class="form-label">Gender</label>
+                                <select class="form-select" id="applicantGender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="applicantCV" class="form-label">Attach CV</label>
+                                <input type="file" class="form-control" id="applicantCV" accept=".pdf,.doc,.docx" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Job Application Modal End -->
+
+    </div>
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Company</h5>
+                <a class="btn btn-link text-white-50" href="">About Us</a>
+                <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="">Our Services</a>
+                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Quick Links</h5>
+                <a class="btn btn-link text-white-50" href="">About Us</a>
+                <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                <a class="btn btn-link text-white-50" href="">Our Services</a>
+                <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
+                <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Contact</h5>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Hanover St, District Six, Cape Town, 7925, South Africa</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+27 345 67890</p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i>khanyamelapi@mail.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/khanya.kheyda/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/khanya-kheyda-687517180/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white mb-4">Newsletter</h5>
+                <p>Discover your perfect job match effortlessly with our cutting-edge skills matching platform, connecting you to opportunities that align with your unique expertise and aspirations.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Skills-Match Website</a>, All Right Reserved. 
+                    
+                   
+                    Designed By <a class="border-bottom" href="">Khanya Somagaca</a>
+               
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+    <!-- Job Application Modal Start -->
+<div class="modal fade" id="jobApplicationModal" tabindex="-1" aria-labelledby="jobApplicationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="jobApplicationModalLabel">Apply for Job</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="job-application-form">
+                    <div class="mb-3">
+                        <label for="applicantName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="applicantName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="applicantSurname" class="form-label">Surname</label>
+                        <input type="text" class="form-control" id="applicantSurname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="applicantEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="applicantEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="applicantPhone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="applicantPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="applicantDOB" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="applicantDOB" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="applicantGender" class="form-label">Gender</label>
+                        <select class="form-select" id="applicantGender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="applicantCV" class="form-label">Attach CV</label>
+                        <input type="file" class="form-control" id="applicantCV" accept=".pdf,.doc,.docx" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitButton">Submit Application</button>
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Job Application Modal End -->
+
+<!-- JavaScript to handle job matching and application -->
+<script>
+    // Mock job data with location
+    const jobListings = [
+        { title: "Software Engineer", skills: ["JavaScript", "Python", "HTML", "CSS", "Software", "Engineer", "Software Engineer"], location: "Cape Town", description: "Develop and maintain software applications." },
+        { title: "Data Scientist", skills: ["Python", "Machine Learning", "Data Analysis", "Data", "Scientist", "Data Scientist"], location: "East London", description: "Analyze data and build predictive models." },
+        { title: "Marketing", skills: ["Creativity", "Critical thinking", "Problem Solving", "CSS"], location: "Pretoria", description: "Set of institutions, and processes for creating, communicating, delivering, and exchanging offerings that have value for customers, clients, partners, and society at large." },
+        { title: "Project Manager", skills: ["Project Management", "Team Leadership", "Marketing"], location: "Johannesburg", description: "Lead project teams and manage timelines." },
+        { title: "Web Developer", skills: ["HTML", "CSS", "JavaScript"], location: "Margate", description: "Create and maintain websites and web applications." },
+        { title: "Customer Service", skills: ["Communication", "Patience", "Adaptability", "Empathy", "Service", "Customer Service"], location: "Durban", description: "Offering assistance to customers to ensure they find the right product/service." },
+        { title: "UI/UX Designer", skills: ["Design", "User Experience", "Figma"], location: "Pretoria", description: "Design user interfaces and improve user experiences." },
+        { title: "Database Administrator", skills: ["SQL", "Database Management", "MySQL"], location: "Stellenbosch", description: "Manage databases and optimize performance." }
+    ];
+
+    // Setting today's date as the maximum selectable date
+    const dobInput = document.getElementById('applicantDOB');
+    const today = new Date().toISOString().split('T')[0];
+    dobInput.setAttribute('max', today);
+
+    // Function to search and match jobs based on skills and location input
+    function searchJobs() {
+        const skillsInput = document.getElementById('skillsInput').value.toLowerCase();
+        const locationInput = document.getElementById('locationInput').value.toLowerCase();
+        const skillsArray = skillsInput.split(',').map(skill => skill.trim());
+
+        const matchedJobs = jobListings.filter(job => {
+            return job.skills.some(skill => skillsArray.includes(skill.toLowerCase())) &&
+                job.location.toLowerCase() === locationInput;
+        });
+
+        displayJobs(matchedJobs);
+    }
+
+    // Function to display matched jobs
+    function displayJobs(jobs) {
+        const jobsContainer = document.getElementById('jobs-container');
+        jobsContainer.innerHTML = '';
+
+        if (jobs.length > 0) {
+            jobs.forEach(job => {
+                jobsContainer.innerHTML += 
+                    `<div class="job-card border p-3 mb-4 d-flex justify-content-between">
+                        <div>
+                            <h3>${job.title}</h3>
+                            <p>${job.description}</p>
+                            <p><strong>Location:</strong> ${job.location}</p>
+                            <p><strong>Required Skills:</strong> ${job.skills.join(', ')}</p>
+                        </div>
+                        <div>
+                            <button class="btn btn-success" onclick="openApplicationForm('${job.title}')">Apply</button>
+                        </div>
+                    </div>`;
+            });
+        } else {
+            jobsContainer.innerHTML = '<p>No jobs found matching your skills and location.</p>';
+        }
+    }
+
+    // Function to open job application modal with job title pre-filled
+    function openApplicationForm(jobTitle) {
+        document.getElementById('jobApplicationModalLabel').innerText = `Apply for ${jobTitle}`;
+        const jobApplicationModal = new bootstrap.Modal(document.getElementById('jobApplicationModal'));
+        jobApplicationModal.show();
+    }
+
+   // Handle form submission
+document.getElementById('job-application-form').addEventListener('submit', function (e) {
+    e.preventDefault();  // Prevent the form from submitting normally
+
+    // Form validation happens automatically due to the 'required' attributes
+
+    // Create the success popup message
+    const popupMessage = document.createElement('div');
+    popupMessage.innerHTML = `
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: absolute; top: 20px; right: 20px; z-index: 1050;">
+            Your application has been submitted successfully!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+
+    // Append the popup message to the body or another relevant section of your page
+    document.body.appendChild(popupMessage);
+
+    // Hide the modal after successful submission
+    const jobApplicationModal = bootstrap.Modal.getInstance(document.getElementById('jobApplicationModal'));
+    jobApplicationModal.hide();
+
+    // Optionally clear the form fields after submission
+    document.getElementById('job-application-form').reset();
+
+    // Optionally, automatically dismiss the success message after a few seconds
+    setTimeout(() => {
+        popupMessage.remove();
+    }, 10000);  // Message disappears after 5 seconds
+});
+
+
+
+        
+</script>
+
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
