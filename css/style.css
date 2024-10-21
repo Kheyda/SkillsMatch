@@ -397,13 +397,13 @@ h2 {
     border-color: rgba(255,255,255,0.5);
 }
 
-.footer .copyright {
+.footer .field {
     padding: 25px 0;
     font-size: 15px;
     border-top: 1px solid rgba(256, 256, 256, .1);
 }
 
-.footer .copyright a {
+.footer .field a {
     color: var(--light);
 }
 
