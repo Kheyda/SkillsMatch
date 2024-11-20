@@ -10,40 +10,7 @@
 </head>
 
 <body>
-  <div class="form-container">
-    <h2>Register</h2>
-    <form id="registrationForm" action="register.php" method="POST">
-      <div class="form-group mb-3">
-        <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-      <div class="form-group mb-3">
-        <label for="surname">Surname:</label>
-        <input type="text" class="form-control" id="surname" name="surname" required>
-      </div>
-      <div class="form-group mb-3">
-        <label for="phone">Phone:</label>
-        <input type="text" class="form-control" id="phone" name="phone" required>
-      </div>
-      <div class="form-group mb-3">
-        <label for="email">Email:</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-      <div class="form-group mb-3">
-        <label for="username">Username:</label>
-        <input type="text" class="form-control" id="username" name="username" required>
-      </div>
-      <div class="form-group mb-3">
-        <label for="password">Password:</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-      </div>
-      <div class="form-group mb-3">
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-      </div>
-      <button type="submit" class="btn btn-primary w-100">Register</button>
-    </form>
-  </div>
+  
 
   <?php
   // Connect to the database

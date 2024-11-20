@@ -142,56 +142,56 @@
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-mail-bulk text-secondary mb-4"></i>
                             <h6 class="mb-3">Marketing</h6>
-                            <p class="mb-0">35 Vacancies</p>
+                          
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-headset text-secondary mb-4"></i>
                             <h6 class="mb-3">Customer Service</h6>
-                            <p class="mb-0">24 Vacancies</p>
+                            
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-user-tie text-secondary mb-4"></i>
                             <h6 class="mb-3">Project Manager</h6>
-                            <p class="mb-0">21 Vacancies</p>
+                           
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-tasks text-secondary mb-4"></i>
                             <h6 class="mb-3">Web Developer</h6>
-                            <p class="mb-0">6 Vacancies</p>
+                           
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-chart-line text-secondary mb-4"></i>
                             <h6 class="mb-3">UI/UX Designer</h6>
-                            <p class="mb-0">29 Vacancies</p>
+                            
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-hands-helping text-secondary mb-4"></i>
                             <h6 class="mb-3">Data Scientist</h6>
-                            <p class="mb-0">5 Vacancies</p>
+                         
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-book-reader text-secondary mb-4"></i>
                             <h6 class="mb-3">Software Engineer</h6>
-                            <p class="mb-0">8 Vacancies</p>
+                            
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <a class="cat-item rounded p-4" href="">
                             <i class="fa fa-3x fa-drafting-compass text-secondary mb-4"></i>
                             <h6 class="mb-3">Database Administrator</h6>
-                            <p class="mb-0">18 Vacancies</p>
+                            
                         </a>
                     </div>
                 </div>
@@ -519,8 +519,17 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="applicantCV" class="form-label">Attach CV</label>
-                        <input type="file" class="form-control" id="applicantCV" accept=".pdf,.doc,.docx" required>
+                        <label for="applicantExperience" class="form-label">Years of Experience</label>
+                        <input type="number" class="form-control" id="applicantExperience" name="applicantExperience" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="notice_period">Notice Period:</label>
+                        <select class="form-control" id="notice_period" name="notice_period" required>
+                            <option value="">Select Notice Period</option>
+                            <option value="Immediately">Immediately</option>
+                            <option value="2 weeks">2 weeks</option>
+                            <option value="1 month">1 month</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (password_verify($password, $hashedPassword)) {
       // Password is correct, set session variables and redirect
       $_SESSION['username'] = $username; // Store username in session
-      header("Location: index.php"); // Redirect to home page
+      header("Location: index.html"); // Redirect to home page
       exit();
     } else {
       // Invalid password

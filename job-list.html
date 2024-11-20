@@ -393,8 +393,17 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="applicantCV" class="form-label">Attach CV</label>
-                        <input type="file" class="form-control" id="applicantCV" accept=".pdf,.doc,.docx" required>
+                        <label for="applicantExperience" class="form-label">Years of Experience</label>
+                        <input type="number" class="form-control" id="applicantExperience" name="applicantExperience" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="notice_period">Notice Period:</label>
+                        <select class="form-control" id="notice_period" name="notice_period" required>
+                            <option value="">Select Notice Period</option>
+                            <option value="Immediately">Immediately</option>
+                            <option value="2 weeks">2 weeks</option>
+                            <option value="1 month">1 month</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit Application</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
